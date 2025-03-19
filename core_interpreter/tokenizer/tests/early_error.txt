@@ -1,0 +1,1 @@
+program int X; begin x = 25; write X; end

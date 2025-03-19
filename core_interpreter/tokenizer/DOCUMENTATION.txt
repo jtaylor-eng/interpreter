@@ -1,0 +1,46 @@
+TokenizerCORE class description:
+
+High level overview: 
+Tokenizer cores constructor takes one argument, the program file name (as a string)
+It then reads the contents of the file as a string, and splits on all lines.
+The self._tokens member is initialized. It is a list of (token_id, token_string pairs).
+For example the token 'program' is stored as (1, 'program'), token '[' is stored as (16, '[') .
+
+Then self.__tokenize_line() is called. It works by maintaining a self._current_line string. When getToken() is called,
+self._tokens adds the current token from self._current_line and returns. Then back in self__tokenize_line() skipToken() is called
+which removes the current token from self._current_line. This is repeated until self._current_line is empty, then skipToken() 
+will call self.__tokenize_line() which will process the next non whitespace line.
+If the current token is an error (id=34), this function returns, ending the Tokenization.
+
+Methods overview:
+    constructor (self.__init__) -- see high level overview
+    self.__tokenize_line()      -- see high level overview
+
+    -- 4 public methods
+    self.getToken()  -- works by checking first character and calling helper method associated with the current token (first char in token being a lowercase indicates it must be reserved, etc.)
+    self.skipToken() -- works by updating self._current_line to be beginning with the next token
+    self.intVal()    -- returns the integer value associated with the cursor index
+    self.idName()    -- returns the name of the id associated with the cursor index
+
+    -- 4 private helper methods
+    self.__process_reserved() -- ensure current token is acceptable reserved keyword, otherwise return 34
+    self.__process_special()  -- ensure current token is acceptable special token (; , ...), otherwise return 34
+    self.__process_integer()  -- ensure current token is acceptable integer, otherwise return 34
+    self.__process_id()       -- ensure current token is acceptable id name, otherwise return 34
+
+    -- 5 public attributes
+    self.tokens        -- the self._tokens object. i.e. (tok_id, token string) pairs
+    self.token_ids     -- the ids of tokens in self._tokens. This is used as the final token id list
+    self.token_strings -- the string values of tokens in self._tokens.
+    self.cursor_index  -- position of cursor within tokens
+    self.program_str   -- the string containing the original source code file.
+
+User manual:
+    Running python3 tokenizer.py (**filename to tokenize**) will tokenize the file and print self.tokens,
+    as well as the more succint list of token ids (self.token_ids).
+
+    Automated test cases exists in unit_tests.py. It uses the unittest package.
+    It works by using TokenizerCORE on the example CORE programs specified in tests/ 
+    (note some source code files are invalid semantically i.e. tests/greedy.txt but this is not the job of the tokenizer to pinpoint)
+    
+    The test cases work by asserting the token_ids extracted using TokenizerCORE are that which is expected.

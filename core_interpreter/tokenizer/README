@@ -1,0 +1,18 @@
+* Files in submissions:
+
+tokenizer.py -- The main source code file including TokenizerCORE class along with main for usage
+unit_tests.py -- unit tests extracting token_ids from example CORE source code files found in tests/, asserting actual tokens equal expected
+
+tests/sample_prog.txt -- example CORE test case
+tests/sample_prog_whitespace.txt -- example CORE test case with added whitespace
+tests/greedy.txt -- testing greedy decoding (i.e. '====' => '==', '==')
+test/full_prog.txt -- a more fleshed out CORE program with more language features checked
+tests/early_error.txt -- checking tokenizer can gracially quit when invalid token found
+tests/early_error.txt -- checking tokenizer can gracially quit when invalid token found for longer CORE program
+
+DOCUMENTATION -- explaination on how the TokenizerCORE class works
+
+* Instructions to run program:
+run python3 tokenizer.py (**filename to tokenize**)
+Ex: python3 tokenizer.py tests/sample_prog.txt
+

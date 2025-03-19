@@ -1,0 +1,16 @@
+program
+int X, Y, ABC123XYZ;
+int A;
+
+begin
+    X = 25; ABC123XYZ= 37;
+    Y =42;A=25;
+
+    if [A==X] then A=0; end;
+
+    if [X==Y] then
+        A=0;
+    end;
+
+    write X,Y , ABC123XYZ ,A;
+end
