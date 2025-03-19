@@ -38,7 +38,7 @@ class TokenizerCORE:
         '>=': 30
     }
 
-    SPECIAL_CHARS = set(''.join(list(SPECIAL.keys()))) #set of special characters (i.e. '&' not '&&') -- to be used in getToken()
+    SPECIAL_CHARS = set(''.join(list(SPECIAL.keys()))) #set of special characters (i.e. '&' not '&&') -- to be used in __getToken()
 
     EOF_CODE = 33
     ERROR_CODE = 34
@@ -57,14 +57,20 @@ class TokenizerCORE:
         self.verbose = verbose
 
         with open(program_file, 'r') as fp:
-            self._cursor_index = 0
+            self.cursor_index = 0
             self._file_contents = fp.read()
             self._file_lines = self._file_contents.split('\n')
 
             self.__tokenizeLine()
 
-            self._cursor_index = 0 # set the cursor to 0 as specified in proj. desc.
+            self.cursor_index = 0 # set the cursor to 0 as specified in proj. desc.
     
+    def getToken(self):
+        return self._tokens[self.cursor_index]
+
+    def skipToken(self):
+        self.cursor_index += 1
+
     def __tokenizeLine(self):
         self._curr_line = ''
 
@@ -78,7 +84,7 @@ class TokenizerCORE:
             if len(self._tokens) > 0 and self._tokens[-1][0] in {self.EOF_CODE, self.ERROR_CODE}:
                 return
         
-            ret_tok = self.getToken()
+            ret_tok = self.__getToken()
 
             if self.verbose:
                 print(f'Returned token: {ret_tok}')
@@ -86,9 +92,9 @@ class TokenizerCORE:
                 print(f'Token id of {ret_tok[0]} reached, terminating.')
             
             self._tokens.append(ret_tok)
-            self.skipToken()
+            self.__skipToken()
 
-    def getToken(self):
+    def __getToken(self):
         if len(self._curr_line) == 0: # at EOF
             return (self.EOF_CODE, 'EOF')
         
@@ -107,13 +113,13 @@ class TokenizerCORE:
         #token not accepted by DFA, probably caught by now, but just in case
         return (self.ERROR_CODE, 'ERR') 
         
-    def skipToken(self):
+    def __skipToken(self):
         if self._tokens[-1][0] in {self.EOF_CODE, self.ERROR_CODE}: # return early if EOF or ERR
             return
         
-        self._cursor_index += 1            
+        self.cursor_index += 1            
 
-        curr_tok = self.getToken()
+        curr_tok = self.__getToken()
 
         self._curr_line = self._curr_line[len(curr_tok[1]):].lstrip()
 
@@ -125,10 +131,10 @@ class TokenizerCORE:
     Luckily, I am storing tokens ids with their string values.
     """
     def intVal(self) -> int:
-        return int(self._tokens[self._cursor_index][1])
+        return int(self._tokens[self.cursor_index][1])
 
     def idName(self) -> str:
-        return self._tokens[self._cursor_index][1]
+        return self._tokens[self.cursor_index][1]
     
     """
     The following 4 private methods are used to process reserved, special, int, and id tokens respectively.
@@ -189,10 +195,6 @@ class TokenizerCORE:
     @property
     def token_strings(self):
         return [tok[1] for tok in self._tokens]
-    
-    @property
-    def cursor_index(self):
-        return self._cursor_index
     
     @property
     def program_str(self):

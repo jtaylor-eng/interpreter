@@ -28,4 +28,4 @@ class IdList:
     def exec_id_list(self):
         #parsing id list should declare all the ids by the Id.parse_id() static method
         #just keeping this here in case accidentally called
-        raise NotImplementedError
+        ...
