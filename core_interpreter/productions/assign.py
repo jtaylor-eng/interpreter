@@ -11,6 +11,9 @@ class Assign:
     def parse_assign(self):
         self.id = id.Id.parse_id()
 
+        config.TOKENIZER.skipToken() # id
+        config.TOKENIZER.skipToken() # = 
+
         self.exp = exp.Exp()
         self.exp.parse_exp()
  

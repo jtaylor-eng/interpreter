@@ -12,6 +12,8 @@ class Decl:
         self.id_list = idlist.IdList()
         self.id_list.parse_id_list()
 
+        config.TOKENIZER.skipToken() #;
+
     def print_decl(self):
         print('int ', end='')
         self.id_list.print_id_list()

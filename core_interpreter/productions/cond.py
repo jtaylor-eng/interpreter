@@ -14,9 +14,12 @@ class Cond:
         first_token = config.TOKENIZER.getToken()[1]
 
         if first_token == '(':
+            config.TOKENIZER.skipToken() #opening paren
             self.alt_no = 1
             self.comp = comp.Comp()
             self.comp.parse_comp()
+            config.TOKENIZER.skipToken() #closing paren
+
 
         elif first_token == '!':
             self.alt_no = 2
@@ -26,6 +29,7 @@ class Cond:
             self.cond1.parse_cond()
 
         else: #production rule must be [<cond> && <cond] or [<cond> || <cond>]
+            print('aqui', first_token, config.TOKENIZER._tokens[config.TOKENIZER.cursor_index-1])
             assert first_token == '['
             config.TOKENIZER.skipToken() #opening [
            

@@ -23,6 +23,8 @@ class DeclSeq:
         if self.ds is not None:
             self.ds.print_decl_seq()
 
+        print(';')
+
     def exec_decl_seq(self):
         self.decl.exec_decl()
 

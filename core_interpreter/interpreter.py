@@ -37,7 +37,7 @@ def main():
 
     program_parser = Prog()
 
-    print("Beggining Parsing:")
+    print("Beginning Parsing:")
     program_parser.parse_prog()
 
     print("Pretty Printing Program:")

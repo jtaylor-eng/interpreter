@@ -17,22 +17,27 @@ class Stmt:
         self.out = None
 
     def parse_stmt(self):
-        tok_no = config.TOKENIZER.getToken()[0]
-        self.alt_no = tok_no - 6 #translate tok_no from BNF to 1-5
-        
-        if tok_no == 7:
+        tok = config.TOKENIZER.getToken()
+        tok_no = tok[0]
+
+        if tok_no == 32:
+            self.alt_no = 1
             self.assign = assign.Assign()
             self.assign.parse_assign()
-        elif tok_no == 8:
+        elif tok_no == 5:
+            self.alt_no = 2
             self._if = _if.If()
             self._if.parse_if()
         elif tok_no == 9:
+            self.alt_no = 3
             self.loop = loop.Loop()
             self.loop.parse_loop()
         elif tok_no == 10:
+            self.alt_no = 4
             self._in = _in.In()
             self._in.parse_in()
         elif tok_no == 11:
+            self.alt_no = 5
             self.out = out.Out()
             self.out.parse_out()
 
@@ -47,6 +52,8 @@ class Stmt:
             self._in.print_in()
         elif self.alt_no == 5:
             self.out.print_out()
+        else:
+            print('debug', self.alt_no)
 
     def exec_stmt(self):
         if self.alt_no == 1:

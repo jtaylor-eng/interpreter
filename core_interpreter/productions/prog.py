@@ -15,7 +15,7 @@ class Prog:
         self.ds.parse_decl_seq()
 
         config.TOKENIZER.skipToken() #begin
-
+        
         self.ss = stmtseq.StmtSeq() #parse ss
         self.ss.parse_stmt_seq()
 

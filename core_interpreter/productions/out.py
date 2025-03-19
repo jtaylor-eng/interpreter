@@ -13,8 +13,9 @@ class Out:
         self.id_list.parse_id_list()
 
     def print_out(self):
-        print('write', end='')
+        print('write ', end='')
         self.id_list.print_id_list()
+        print(';')
 
     def exec_out(self):
         self.id_list.print_id_list(verbose=True)
