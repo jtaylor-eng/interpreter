@@ -28,7 +28,7 @@ class Stmt:
             self.alt_no = 2
             self._if = _if.If()
             self._if.parse_if()
-        elif tok_no == 9:
+        elif tok_no == 8:
             self.alt_no = 3
             self.loop = loop.Loop()
             self.loop.parse_loop()

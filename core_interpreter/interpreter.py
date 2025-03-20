@@ -37,14 +37,17 @@ def main():
 
     program_parser = Prog()
 
-    print("Beginning Parsing:")
+    print('Beginning Parsing:')
     program_parser.parse_prog()
+    print('Parsing complete!\n')
 
-    print("Pretty Printing Program:")
+    print('Pretty Printing Program:')
     program_parser.print_prog()
+    print('End pretty print.')
 
-    print("Executing Program:")
+    print('Executing Program:')
     program_parser.exec_prog()
+    print('Execution finished.')
 
 if __name__ == '__main__':
     main()

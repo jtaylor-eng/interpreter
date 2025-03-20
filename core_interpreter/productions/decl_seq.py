@@ -15,13 +15,11 @@ class DeclSeq:
             self.ds = DeclSeq()
             self.ds.parse_decl_seq()
 
-    def print_decl_seq(self):
-        self.decl.print_decl()
+    def print_decl_seq(self, indents):
+        self.decl.print_decl(indents=indents)
 
         if self.ds is not None:
-            self.ds.print_decl_seq()
-
-        print(';')
+            self.ds.print_decl_seq(indents=indents)
 
     def exec_decl_seq(self):
         self.decl.exec_decl()

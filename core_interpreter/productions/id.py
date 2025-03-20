@@ -13,7 +13,6 @@ class Id:
     @staticmethod
     def parse_id():
         tok_name = config.TOKENIZER.getToken()[1]
-        print('a', tok_name)
         config.TOKENIZER.skipToken()
 
         for id in Id.eIds:
@@ -30,7 +29,7 @@ class Id:
 
     def print_id(self, verbose=False):
         if not verbose:
-            print(self.name, end=' ')
+            print(self.name, end='')
         else:
             print(f'{self.name} = {self.val}')
 

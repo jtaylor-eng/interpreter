@@ -12,12 +12,12 @@ class Decl:
         self.id_list = idlist.IdList()
         self.id_list.parse_id_list()
 
-        print('c', config.TOKENIZER.getToken())
         config.TOKENIZER.skipToken() #;
 
-    def print_decl(self):
+    def print_decl(self, indents=1):
         print('int ', end='')
         self.id_list.print_id_list()
+        print(';')
 
     def exec_decl(self):
         self.id_list.exec_id_list()

@@ -1,7 +1,6 @@
 program
-int X, Y, ABC123XYZ;
-int A;
-
+    int X, Y, ABC123XYZ;
+    int A;
 begin
     X = 25; ABC123XYZ= 37;
     Y =42;A=25;

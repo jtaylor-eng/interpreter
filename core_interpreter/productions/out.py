@@ -20,4 +20,4 @@ class Out:
         print(';')
 
     def exec_out(self):
-        self.id_list.print_id_list(verbose=True)
+        self.id_list.print_id_list(verbose=True) #verbose writes ids w/ values like: X = 25

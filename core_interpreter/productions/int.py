@@ -9,7 +9,7 @@ class Int:
         config.TOKENIZER.skipToken()
 
     def print_int(self):
-        print(self.val)
+        print(self.val, end='')
     
     def eval_int(self):
         return self.val

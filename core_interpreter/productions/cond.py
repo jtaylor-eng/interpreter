@@ -27,7 +27,6 @@ class Cond:
             self.cond1.parse_cond()
 
         else: #production rule must be [<cond> && <cond] or [<cond> || <cond>]
-            print('aqui', first_token, config.TOKENIZER._tokens[config.TOKENIZER.cursor_index-1])
             assert first_token == '['
             config.TOKENIZER.skipToken() #opening [
            

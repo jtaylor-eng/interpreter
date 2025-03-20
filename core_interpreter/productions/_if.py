@@ -10,8 +10,6 @@ class If:
         self.ss2 = None
 
     def parse_if(self):
-        print(config.TOKENIZER.tokens)
-
         config.TOKENIZER.skipToken() #parse condition
         self.c = cond.Cond()
         self.c.parse_cond()
