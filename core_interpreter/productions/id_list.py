@@ -22,7 +22,7 @@ class IdList:
         self.id.print_id(verbose=verbose)
         
         if self.id_list is not None:
-            print(', ', end='')
+            if not verbose: print(', ', end='') #use commas to delimate in pretty print, new line otherwise
             self.id_list.print_id_list(verbose=verbose)
 
     def exec_id_list(self):

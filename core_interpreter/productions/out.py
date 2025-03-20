@@ -14,7 +14,8 @@ class Out:
 
         config.TOKENIZER.skipToken() #;
 
-    def print_out(self):
+    def print_out(self, indent):
+        print('\t' * indent, end='')
         print('write ', end='')
         self.id_list.print_id_list()
         print(';')

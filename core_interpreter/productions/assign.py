@@ -18,7 +18,8 @@ class Assign:
 
         config.TOKENIZER.skipToken() #;
  
-    def print_assign(self):
+    def print_assign(self, indent):
+        print('\t' * indent, end='')
         self.id.print_id()
         print(' = ', end='')
         self.exp.print_exp()

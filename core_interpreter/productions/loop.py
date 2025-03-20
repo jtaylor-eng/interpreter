@@ -22,11 +22,13 @@ class Loop:
         config.TOKENIZER.skipToken() #end
         config.TOKENIZER.skipToken() #;
 
-    def print_loop(self):
-        print('while')
+    def print_loop(self, indent):
+        print('\t' * indent, end='')
+        print('while', end='')
         self.cond.print_cond()
         print('loop')
-        self.ss.print_stmt_seq()
+        self.ss.print_stmt_seq(indent=indent+1)
+        print('\t' * indent, end='')
         print('end;')
 
     def exec_loop(self):

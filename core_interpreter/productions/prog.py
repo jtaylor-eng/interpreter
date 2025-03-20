@@ -23,9 +23,9 @@ class Prog:
 
     def print_prog(self):
         print('program')
-        self.ds.print_decl_seq()
+        self.ds.print_decl_seq(indent=1)
         print('begin')
-        self.ss.print_stmt_seq()
+        self.ss.print_stmt_seq(indent=1)
         print('end')
 
     def exec_prog(self):

@@ -44,17 +44,17 @@ class Stmt:
         print(tok)
         assert self.alt_no in [1,2,3,4,5]
 
-    def print_stmt(self):
+    def print_stmt(self, indent):
         if self.alt_no == 1:
-            self.assign.print_assign()
+            self.assign.print_assign(indent=indent)
         elif self.alt_no == 2:
-            self._if.print_if()
+            self._if.print_if(indent=indent)
         elif self.alt_no == 3:
-            self.loop.print_loop()      
+            self.loop.print_loop(indent=indent)      
         elif self.alt_no == 4:
-            self._in.print_in()
+            self._in.print_in(indent=indent)
         elif self.alt_no == 5:
-            self.out.print_out()
+            self.out.print_out(indent=indent)
 
     def exec_stmt(self):
         if self.alt_no == 1:

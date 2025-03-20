@@ -14,7 +14,8 @@ class Decl:
 
         config.TOKENIZER.skipToken() #;
 
-    def print_decl(self, indents=1):
+    def print_decl(self, indent):
+        print('\t' * indent, end='')
         print('int ', end='')
         self.id_list.print_id_list()
         print(';')

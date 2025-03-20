@@ -30,16 +30,18 @@ class If:
         config.TOKENIZER.skipToken()
         config.TOKENIZER.skipToken()
 
-    def print_if(self):
+    def print_if(self, indent):
+        print('\t' * indent, end='')
         print('if ', end='')
+
         self.c.print_cond()
         print(' then')
-        self.ss1.print_stmt_seq()
+        self.ss1.print_stmt_seq(indent=indent+1)
 
         if self.ss2 is not None: #ss2 exists, execute it
             print(' else')
-            self.ss2.print_stmt_seq()
-
+            self.ss2.print_stmt_seq(indent=indent+1)
+        print('\t' * indent, end='')
         print('end;')
 
     def exec_if(self):

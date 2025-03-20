@@ -18,11 +18,11 @@ class StmtSeq:
             self.ss = StmtSeq()
             self.ss.parse_stmt_seq()
         
-    def print_stmt_seq(self):
-        self.stmt.print_stmt()
+    def print_stmt_seq(self, indent):
+        self.stmt.print_stmt(indent=indent)
 
         if self.ss is not None:
-            self.ss.print_stmt_seq()
+            self.ss.print_stmt_seq(indent=indent)
 
     def exec_stmt_seq(self):
         self.stmt.exec_stmt()
