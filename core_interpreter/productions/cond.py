@@ -14,11 +14,9 @@ class Cond:
         first_token = config.TOKENIZER.getToken()[1]
 
         if first_token == '(':
-            config.TOKENIZER.skipToken() #opening paren
             self.alt_no = 1
             self.comp = comp.Comp()
             self.comp.parse_comp()
-            config.TOKENIZER.skipToken() #closing paren
 
 
         elif first_token == '!':

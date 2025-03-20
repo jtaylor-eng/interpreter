@@ -12,6 +12,8 @@ class In:
         self.id_list = idlist.IdList()
         self.id_list.parse_id_list()
 
+        config.TOKENIZER.skipToken() #;
+
     def print_in(self):
         print('read', end='')
         self.id_list.print_id_list()

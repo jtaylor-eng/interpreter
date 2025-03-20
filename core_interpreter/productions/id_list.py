@@ -12,7 +12,6 @@ class IdList:
         first_tok = config.TOKENIZER.getToken()[1]
         self.id = id.Id(name=first_tok)
         self.id = id.Id.parse_id()
-        config.TOKENIZER.skipToken()
 
         if config.TOKENIZER.getToken()[1] == ',':
             config.TOKENIZER.skipToken()

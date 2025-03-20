@@ -13,6 +13,8 @@ class Id:
     @staticmethod
     def parse_id():
         tok_name = config.TOKENIZER.getToken()[1]
+        print('a', tok_name)
+        config.TOKENIZER.skipToken()
 
         for id in Id.eIds:
             if id.name == tok_name:

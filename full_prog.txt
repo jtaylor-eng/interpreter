@@ -9,7 +9,7 @@ begin
     if (A==X) then A=0; end;
 
     if (X==Y) then
-        A=0;
+        A=1;
     end;
 
     write X,Y , ABC123XYZ ,A;

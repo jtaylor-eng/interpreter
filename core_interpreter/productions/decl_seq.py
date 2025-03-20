@@ -12,8 +12,6 @@ class DeclSeq:
         self.decl.parse_decl()
 
         if config.TOKENIZER.getToken()[1] == 'int':
-            config.TOKENIZER.skipToken()
-
             self.ds = DeclSeq()
             self.ds.parse_decl_seq()
 

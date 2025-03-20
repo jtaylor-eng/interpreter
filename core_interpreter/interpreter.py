@@ -14,7 +14,7 @@ from core_interpreter.productions.id import Id
 from core_interpreter.productions.out import Out
 from core_interpreter.productions.stmt import Stmt
 from core_interpreter.productions.stmt_seq import StmtSeq
-from core_interpreter.productions.inCORE import In
+from core_interpreter.productions._in import In
 from core_interpreter.productions.cond import Cond
 from core_interpreter.productions.op import Op
 from core_interpreter.productions.decl_seq import DeclSeq
@@ -25,7 +25,7 @@ from core_interpreter.productions.decl import Decl
 from core_interpreter.productions.exp import Exp
 from core_interpreter.productions.int import Int
 from core_interpreter.productions.id_list import IdList
-from core_interpreter.productions.ifCORE import If
+from core_interpreter.productions._if import If
 
 def main():
     assert len(sys.argv) == 3

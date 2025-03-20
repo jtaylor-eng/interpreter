@@ -1,7 +1,7 @@
 import core_interpreter.productions.assign as assign
-import core_interpreter.productions.ifCORE as _if
+import core_interpreter.productions._if as _if
 import core_interpreter.productions.loop as loop
-import core_interpreter.productions.inCORE as _in
+import core_interpreter.productions._in as _in
 import core_interpreter.productions.out as out
 
 import core_interpreter.config as config
@@ -40,6 +40,9 @@ class Stmt:
             self.alt_no = 5
             self.out = out.Out()
             self.out.parse_out()
+        
+        print(tok)
+        assert self.alt_no in [1,2,3,4,5]
 
     def print_stmt(self):
         if self.alt_no == 1:
@@ -52,8 +55,6 @@ class Stmt:
             self._in.print_in()
         elif self.alt_no == 5:
             self.out.print_out()
-        else:
-            print('debug', self.alt_no)
 
     def exec_stmt(self):
         if self.alt_no == 1:

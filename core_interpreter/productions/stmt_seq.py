@@ -11,7 +11,6 @@ class StmtSeq:
     def parse_stmt_seq(self):
         self.stmt = stmt.Stmt()
         self.stmt.parse_stmt()
-        config.TOKENIZER.skipToken() #;
 
         next_tok = config.TOKENIZER.getToken()[1]
         if next_tok in ['if', 'while', 'read', 'write'] or \
