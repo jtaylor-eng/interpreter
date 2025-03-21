@@ -64,6 +64,6 @@ class Stmt:
         elif self.alt_no == 3:
             self.loop.exec_loop()      
         elif self.alt_no == 4:
-            self._in.exec_in()
+            self._in.eval_in()
         elif self.alt_no == 5:
             self.out.exec_out()

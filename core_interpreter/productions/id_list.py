@@ -27,5 +27,10 @@ class IdList:
 
     def exec_id_list(self):
         #parsing id list should declare all the ids by the Id.parse_id() static method
-        #just keeping this here in case accidentally called
-        ...
+        # print(self.id, self.id_list)
+        if self.id_list is not None:
+            ls = [self.id]
+            ls.extend(self.id_list.exec_id_list())
+            return ls
+        
+        return [self.id]

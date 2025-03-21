@@ -16,8 +16,15 @@ class In:
 
     def print_in(self, indent):
         print('\t' * indent, end='')
-        print('read', end='')
+        print('read ', end='')
         self.id_list.print_id_list()
+        print(';')
 
-    def exec_in(self):
-        raise NotImplementedError
+    def eval_in(self):
+        try:
+            ids = self.id_list.exec_id_list()
+            for id in ids:
+                id.val = config.INPUTS.pop(0)
+        except:
+            print(f'Expected input from {config.DATAFILE}, but none was found.')
+            exit()

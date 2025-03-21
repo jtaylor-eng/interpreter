@@ -35,19 +35,25 @@ def main():
     #init scanner/tokenizer object from command line argument
     config.TOKENIZER = TokenizerCORE(program_file=program_file)
 
+    with open(data_file, 'r') as fp:
+        contents = fp.read()
+        lines = contents.split('\n')
+
+    config.INPUTS = [int(line) for line in lines]
+    print(config.INPUTS)
     program_parser = Prog()
 
-    print(' === Beginning Parsing: ===')
+    print(' ===     Beginning Parsing:   ===')
     program_parser.parse_prog()
-    print(' === Parsing complete!  ===\n')
+    print(' ===     Parsing complete!    ===\n')
 
     print(' === Pretty Printing Program: ===')
     program_parser.print_prog()
     print(' ===     End pretty print.    ===\n')
 
-    print(' ===  Executing Program: === ')
+    print(' ===     Executing Program:   === ')
     program_parser.exec_prog()
-    print(' === Execution finished. ===')
+    print(' ===     Execution finished.  ===')
 
 if __name__ == '__main__':
     main()

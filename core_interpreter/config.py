@@ -1,1 +1,2 @@
 TOKENIZER = None
+INPUTS = None

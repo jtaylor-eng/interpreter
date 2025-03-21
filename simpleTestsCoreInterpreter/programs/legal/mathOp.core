@@ -1,0 +1,37 @@
+program
+    int X, Y;
+    int OPER, SUM, DIFF, PROD;
+    int INDEX, POWER;
+    int ERROR;
+begin
+    read OPER;
+    read X, Y;
+    write OPER, X, Y;
+
+    if (OPER == 0) then
+        SUM = X + Y;
+        write SUM;
+    else
+        if (OPER == 1) then
+            DIFF = X - Y;
+            write DIFF;
+        else
+            if (OPER == 2) then 
+                PROD = X * Y;
+                write PROD;
+            else
+                ERROR = 2147483647;
+                write ERROR;
+            end;
+        end;
+    end;
+
+    INDEX = 1;
+    POWER = X;
+    while (INDEX < Y) loop
+        POWER = POWER * X;
+        INDEX = INDEX + 1;
+    end;
+
+    write POWER;
+end

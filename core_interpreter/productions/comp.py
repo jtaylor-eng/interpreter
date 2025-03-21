@@ -26,7 +26,9 @@ class Comp:
     def print_comp(self):
         print('(', end='')
         self.op1.print_op()
+        print(' ', end='')
         self.comp_op.print_comp_op()
+        print(' ', end='')
         self.op2.print_op()
         print(')', end='')
 

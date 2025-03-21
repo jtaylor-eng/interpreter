@@ -24,9 +24,9 @@ class Loop:
 
     def print_loop(self, indent):
         print('\t' * indent, end='')
-        print('while', end='')
+        print('while ', end='')
         self.cond.print_cond()
-        print('loop')
+        print(' loop')
         self.ss.print_stmt_seq(indent=indent+1)
         print('\t' * indent, end='')
         print('end;')

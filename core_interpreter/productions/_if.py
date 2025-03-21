@@ -39,7 +39,8 @@ class If:
         self.ss1.print_stmt_seq(indent=indent+1)
 
         if self.ss2 is not None: #ss2 exists, execute it
-            print(' else')
+            print('\t' * indent, end='')
+            print('else')
             self.ss2.print_stmt_seq(indent=indent+1)
         print('\t' * indent, end='')
         print('end;')
