@@ -11,9 +11,6 @@ class Id:
     eIds = []
     id_count = 0
 
-    DOUBLE_DECL_ERR = 'Id {} was double declared.'
-    NOT_INIT_ERR = 'Id {} was not initialized in declaration sequence.'
-
     def __init__(self, name):
         self.name = name
         self.val = None
