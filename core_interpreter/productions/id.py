@@ -28,10 +28,10 @@ class Id:
         #id already exists, return it
         for id in Id.eIds:
             if id.name == tok_name:
-                if not assign_mode:
+                if not assign_mode and not id.initialized:
                     print(f'Error: Id {tok_name} accessed before initialization.')
                     exit()
-                    
+
                 id.initialized = True
                 return id
 

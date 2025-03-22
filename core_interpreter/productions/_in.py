@@ -10,7 +10,8 @@ class In:
         config.TOKENIZER.skipToken() #read
 
         self.id_list = idlist.IdList()
-        self.id_list.parse_id_list()
+        print('caller in')
+        self.id_list.parse_id_list(assign_mode=True)
 
         config.TOKENIZER.skipToken() #;
 
