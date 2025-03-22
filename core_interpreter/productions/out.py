@@ -21,4 +21,7 @@ class Out:
         print(';')
 
     def exec_out(self):
-        self.id_list.print_id_list(verbose=True) #verbose writes ids w/ values like: X = 25
+        # self.id_list.print_id_list(verbose=True) #verbose writes ids w/ values like: X = 25
+        for id in self.id_list.exec_id_list():
+            val = id.exec_id()
+            print(f'{id.name} = {val}')

@@ -28,11 +28,8 @@ class Id:
         #id already exists, return it
         for id in Id.eIds:
             if id.name == tok_name:
-                if not assign_mode and not id.initialized:
-                    print(f'Error: Id {tok_name} accessed before initialization.')
-                    exit()
-
-                id.initialized = True
+                if assign_mode:
+                    id.initialized = True
                 return id
 
         #id doesn't exist, declare it
@@ -43,6 +40,7 @@ class Id:
 
     #val, name getters and setters
     #available with .val data member
+    #getter for .val essentially exec_id w/uninitialized check
 
     def print_id(self, verbose=False):
         if not verbose:
@@ -51,4 +49,7 @@ class Id:
             print(f'{self.name} = {self.val}')
 
     def exec_id(self):
-        raise NotImplementedError #shouldn't need to call, just incase someone does
+        if not self.initialized:
+            print(f'Error: {self.name} must be initialized before access.')
+            exit()
+        return self.val

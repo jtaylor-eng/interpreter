@@ -47,6 +47,6 @@ class Op:
         if self.alt_no == 1:
             return self.int.eval_int()
         elif self.alt_no == 2:
-            return self.id.val
+            return self.id.exec_id()
         else:
             return self.exp.eval_exp()
