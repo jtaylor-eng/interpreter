@@ -41,7 +41,6 @@ class Stmt:
             self.out = out.Out()
             self.out.parse_out()
         
-        print(tok)
         assert self.alt_no in [1,2,3,4,5]
 
     def print_stmt(self, indent):

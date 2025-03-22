@@ -8,15 +8,15 @@ class IdList:
         self.id = None
         self.id_list = None
 
-    def parse_id_list(self):
+    def parse_id_list(self, decl_mode=False):
         first_tok = config.TOKENIZER.getToken()[1]
         self.id = id.Id(name=first_tok)
-        self.id = id.Id.parse_id()
+        self.id = id.Id.parse_id(decl_mode=decl_mode)
 
         if config.TOKENIZER.getToken()[1] == ',':
             config.TOKENIZER.skipToken()
             self.id_list = IdList()
-            self.id_list.parse_id_list()
+            self.id_list.parse_id_list(decl_mode=decl_mode)
 
     def print_id_list(self, verbose=False):
         self.id.print_id(verbose=verbose)

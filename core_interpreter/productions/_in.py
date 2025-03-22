@@ -26,5 +26,5 @@ class In:
             for id in ids:
                 id.val = config.INPUTS.pop(0)
         except:
-            print(f'Expected input from {config.DATAFILE}, but none was found.')
+            print(f'Error: Expected input from data_file, but none was found.')
             exit()

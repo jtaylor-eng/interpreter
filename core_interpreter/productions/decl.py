@@ -10,7 +10,7 @@ class Decl:
         config.TOKENIZER.skipToken() #int
 
         self.id_list = idlist.IdList()
-        self.id_list.parse_id_list()
+        self.id_list.parse_id_list(decl_mode=True)
 
         config.TOKENIZER.skipToken() #;
 

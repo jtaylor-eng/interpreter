@@ -1,12 +1,5 @@
 import core_interpreter.config as config
 
-class GenericError(Exception):
-    def __init__(self, message):
-        self._message = message
-
-    def __str__(self):
-        return f'ERROR in program: {self._message}'
-
 class Id:
     eIds = []
     id_count = 0
@@ -18,14 +11,31 @@ class Id:
         self.initialized = False
         
     @staticmethod
-    def parse_id():
+    def parse_id(decl_mode=False, assign_mode=False):
         tok_name = config.TOKENIZER.getToken()[1]
         config.TOKENIZER.skipToken()
 
+        #double declaration
+        if decl_mode and tok_name in [id.name for id in Id.eIds]:
+            print(f'Error: double declaration on token {tok_name}.')
+            exit()
+
+        #undeclared
+        if not decl_mode and tok_name not in [id.name for id in Id.eIds]:
+            print(f'Error: Id {tok_name} never declared.')
+            exit()
+
+        #id already exists, return it
         for id in Id.eIds:
             if id.name == tok_name:
+                if not assign_mode:
+                    print(f'Error: Id {tok_name} accessed before initialization.')
+                    exit()
+                    
+                id.initialized = True
                 return id
 
+        #id doesn't exist, declare it
         nId = Id(tok_name)
         Id.eIds.append(nId)
 

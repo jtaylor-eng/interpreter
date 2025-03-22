@@ -9,7 +9,7 @@ class Assign:
         self.exp = None
 
     def parse_assign(self):
-        self.id = id.Id.parse_id()
+        self.id = id.Id.parse_id(assign_mode=True)
 
         config.TOKENIZER.skipToken() #= 
 

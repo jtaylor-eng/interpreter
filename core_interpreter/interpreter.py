@@ -23,8 +23,7 @@ def main():
         contents = fp.read()
         lines = contents.split('\n')
 
-    config.INPUTS = [int(line) for line in lines]
-    print(config.INPUTS)
+    config.INPUTS = [int(line) for line in lines if line.strip()]
 
     program_parser = Prog()
 
