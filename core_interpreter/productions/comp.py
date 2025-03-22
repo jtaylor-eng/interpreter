@@ -10,6 +10,7 @@ class Comp:
         self.comp_op = None
 
     def parse_comp(self):
+        config.assert_proper_token(['('], 'comp')
         config.TOKENIZER.skipToken() #open parenthesis
 
         self.op1 = op.Op() #parse op1
@@ -21,6 +22,7 @@ class Comp:
         self.op2 = op.Op() #parse op2
         self.op2.parse_op()
 
+        config.assert_proper_token([')'], 'comp')
         config.TOKENIZER.skipToken() #closing paren
 
     def print_comp(self):

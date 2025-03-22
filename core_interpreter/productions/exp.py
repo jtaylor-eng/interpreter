@@ -14,6 +14,7 @@ class Exp:
 
         next_tok = config.TOKENIZER.getToken()[1]
         if next_tok in ['+', '-']:
+            config.assert_proper_token(['+', '-'], 'exp')
             config.TOKENIZER.skipToken() #skip +, -
             self.exp = Exp()
             self.exp.parse_exp()

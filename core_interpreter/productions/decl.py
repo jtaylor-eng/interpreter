@@ -7,11 +7,13 @@ class Decl:
         self.id_list = None
 
     def parse_decl(self):
+        config.assert_proper_token('int', 'decl')
         config.TOKENIZER.skipToken() #int
 
         self.id_list = idlist.IdList()
         self.id_list.parse_id_list(decl_mode=True)
 
+        config.assert_proper_token(';', 'decl')
         config.TOKENIZER.skipToken() #;
 
     def print_decl(self, indent):

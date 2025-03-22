@@ -6,12 +6,14 @@ class In:
     def __init__(self):
         self.id_list = None
 
-    def parse_in(self):
+    def parse_in(self):  
+        config.assert_proper_token(['read'], 'read')  
         config.TOKENIZER.skipToken() #read
 
         self.id_list = idlist.IdList()
         self.id_list.parse_id_list(assign_mode=True)
 
+        config.assert_proper_token([';'], 'read')
         config.TOKENIZER.skipToken() #;
 
     def print_in(self, indent):

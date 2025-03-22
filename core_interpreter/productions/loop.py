@@ -9,17 +9,21 @@ class Loop:
         self.ss = None
 
     def parse_loop(self):
+        config.assert_proper_token(['while'], 'loop')
         config.TOKENIZER.skipToken() #while tok
 
         self.cond = cond.Cond() #parse while cond
         self.cond.parse_cond()
 
+        config.assert_proper_token('loop', 'loop')
         config.TOKENIZER.skipToken() #loop tok
 
         self.ss = stmtseq.StmtSeq() #parse stmt seq
         self.ss.parse_stmt_seq()
 
+        config.assert_proper_token('end', 'loop')
         config.TOKENIZER.skipToken() #end
+        config.assert_proper_token(';', 'loop')
         config.TOKENIZER.skipToken() #;
 
     def print_loop(self, indent):

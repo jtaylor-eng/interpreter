@@ -10,10 +10,12 @@ class If:
         self.ss2 = None
 
     def parse_if(self):
+        config.assert_proper_token(['if'], 'if') 
         config.TOKENIZER.skipToken() #parse condition
         self.c = cond.Cond()
         self.c.parse_cond()
 
+        config.assert_proper_token(['then'], 'if')
         config.TOKENIZER.skipToken() #parse first ss1 which is certainly present
         self.ss1 = stmtseq.StmtSeq()
         self.ss1.parse_stmt_seq()
@@ -21,13 +23,19 @@ class If:
         tokNo = config.TOKENIZER.getToken() 
         if tokNo[0] == 3: #production rule #1 (no else)
             config.TOKENIZER.skipToken()
+            config.assert_proper_token([';'], 'if')
             config.TOKENIZER.skipToken()
             return
         
+        config.assert_proper_token(['else'], 'if')
         config.TOKENIZER.skipToken() #production rule #2 (else branch)
+
         self.ss2 = stmtseq.StmtSeq()
         self.ss2.parse_stmt_seq()
+
+        config.assert_proper_token(['end'], 'if')
         config.TOKENIZER.skipToken()
+        config.assert_proper_token([';'], 'if')
         config.TOKENIZER.skipToken()
 
     def print_if(self, indent):

@@ -11,11 +11,13 @@ class Assign:
     def parse_assign(self):
         self.id = id.Id.parse_id(assign_mode=True)
 
+        config.assert_proper_token(['='], 'assign')
         config.TOKENIZER.skipToken() #= 
 
         self.exp = exp.Exp()
         self.exp.parse_exp()
 
+        config.assert_proper_token([';'], 'assign')
         config.TOKENIZER.skipToken() #;
  
     def print_assign(self, indent):

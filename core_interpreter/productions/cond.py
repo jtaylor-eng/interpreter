@@ -27,7 +27,7 @@ class Cond:
             self.cond1.parse_cond()
 
         else: #production rule must be [<cond> && <cond] or [<cond> || <cond>]
-            assert first_token == '['
+            config.assert_proper_token(['['], 'cond')
             config.TOKENIZER.skipToken() #opening [
            
             #parse cond1
@@ -37,12 +37,14 @@ class Cond:
             #handle && or ||
             op_tok = config.TOKENIZER.getToken()[1]
             self.alt_no = 3 if op_tok == '&&' else 4
+            config.assert_proper_token(['||', '&&'], 'cond')
             config.TOKENIZER.skipToken() # && or ||
 
             #parse cond2
             self.cond2 = Cond()
             self.cond2.parse_cond()
             
+            config.assert_proper_token([']'], 'cond')
             config.TOKENIZER.skipToken() #closing ]
 
     def print_cond(self):

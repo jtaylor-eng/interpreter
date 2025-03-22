@@ -41,7 +41,9 @@ class Stmt:
             self.out = out.Out()
             self.out.parse_out()
         
-        assert self.alt_no in [1,2,3,4,5]
+        if self.alt_no not in [1,2,3,4,5]:
+            print('Error: statement did not fit production rule.')
+            exit()
 
     def print_stmt(self, indent):
         if self.alt_no == 1:

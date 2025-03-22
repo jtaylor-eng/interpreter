@@ -7,11 +7,13 @@ class Out:
         self.id_list = None
 
     def parse_out(self):
+        config.assert_proper_token(['write'], 'out')
         config.TOKENIZER.skipToken() #write
 
         self.id_list = idlist.IdList()
         self.id_list.parse_id_list()
 
+        config.assert_proper_token(';', 'out')
         config.TOKENIZER.skipToken() #;
 
     def print_out(self, indent):

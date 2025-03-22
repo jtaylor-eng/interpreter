@@ -1,0 +1,14 @@
+program
+    int X, Y;
+begin
+    X = 2;
+    Y = 5;
+
+    if [(X != 2) || (Y<=77)] then
+        write X;
+    end;
+
+    if !(1 == 2) then
+        write Y;
+    end;
+end
