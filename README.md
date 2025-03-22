@@ -16,27 +16,30 @@ At the top level of this core_interpreter packages there is:
 
 Tests cases for interpreter exist in simpleTestsCoreInterpreter (see simpleTestsCoreInterpreter/README for more info)
 Here I've copied each individual running of the cases found in that directory:
+
 **legal programs test cases:**
-python3 -m core_interpreter.interpreter simpleTestsCoreInterpreter/programs/legal/printX.core simpleTestsCoreInterpreter/input/blank.txt
-python3 -m core_interpreter.interpreter simpleTestsCoreInterpreter/programs/legal/printXOL.core simpleTestsCoreInterpreter/input/blank.txt
 
-python3 -m core_interpreter.interpreter simpleTestsCoreInterpreter/programs/legal/readPrintX.core simpleTestsCoreInterpreter/input/x.txt
+ - python3 -m core_interpreter.interpreter simpleTestsCoreInterpreter/programs/legal/printX.core simpleTestsCoreInterpreter/input/blank.txt
+ - python3 -m core_interpreter.interpreter simpleTestsCoreInterpreter/programs/legal/printXOL.core simpleTestsCoreInterpreter/input/blank.txt
 
-python3 -m core_interpreter.interpreter simpleTestsCoreInterpreter/programs/legal/mathOp.core simpleTestsCoreInterpreter/input/mathOp0N.txt
-python3 -m core_interpreter.interpreter simpleTestsCoreInterpreter/programs/legal/mathOp.core simpleTestsCoreInterpreter/input/mathOp0P.txt
-python3 -m core_interpreter.interpreter simpleTestsCoreInterpreter/programs/legal/mathOp.core simpleTestsCoreInterpreter/input/mathOp1N.txt
-python3 -m core_interpreter.interpreter simpleTestsCoreInterpreter/programs/legal/mathOp.core simpleTestsCoreInterpreter/input/mathOp1P.txt
-python3 -m core_interpreter.interpreter simpleTestsCoreInterpreter/programs/legal/mathOp.core simpleTestsCoreInterpreter/input/mathOp2N.txt
-python3 -m core_interpreter.interpreter simpleTestsCoreInterpreter/programs/legal/mathOp.core simpleTestsCoreInterpreter/input/mathOp2P.txt
-python3 -m core_interpreter.interpreter simpleTestsCoreInterpreter/programs/legal/mathOp.core simpleTestsCoreInterpreter/input/mathOpYgtX.txt
+ - python3 -m core_interpreter.interpreter simpleTestsCoreInterpreter/programs/legal/readPrintX.core simpleTestsCoreInterpreter/input/x.txt
+
+ - python3 -m core_interpreter.interpreter simpleTestsCoreInterpreter/programs/legal/mathOp.core simpleTestsCoreInterpreter/input/mathOp0N.txt
+ - python3 -m core_interpreter.interpreter simpleTestsCoreInterpreter/programs/legal/mathOp.core simpleTestsCoreInterpreter/input/mathOp0P.txt
+ - python3 -m core_interpreter.interpreter simpleTestsCoreInterpreter/programs/legal/mathOp.core simpleTestsCoreInterpreter/input/mathOp1N.txt
+ - python3 -m core_interpreter.interpreter simpleTestsCoreInterpreter/programs/legal/mathOp.core simpleTestsCoreInterpreter/input/mathOp1P.txt
+ - python3 -m core_interpreter.interpreter simpleTestsCoreInterpreter/programs/legal/mathOp.core simpleTestsCoreInterpreter/input/mathOp2N.txt
+ - python3 -m core_interpreter.interpreter simpleTestsCoreInterpreter/programs/legal/mathOp.core simpleTestsCoreInterpreter/input/mathOp2P.txt
+ - python3 -m core_interpreter.interpreter simpleTestsCoreInterpreter/programs/legal/mathOp.core simpleTestsCoreInterpreter/input/mathOpYgtX.txt
 
 **illegal programs test cases:**
-python3 -m core_interpreter.interpreter simpleTestsCoreInterpreter/programs/illegal/PrintXRB.core simpleTestsCoreInterpreter/input/blank.txt
 
-python3 -m core_interpreter.interpreter simpleTestsCoreInterpreter/programs/illegal/PrintXDD1.core simpleTestsCoreInterpreter/input/blank.txt
-python3 -m core_interpreter.interpreter simpleTestsCoreInterpreter/programs/illegal/PrintXDD2.core simpleTestsCoreInterpreter/input/blank.txt
-python3 -m core_interpreter.interpreter simpleTestsCoreInterpreter/programs/illegal/PrintXUD.core simpleTestsCoreInterpreter/input/blank.txt
-python3 -m core_interpreter.interpreter simpleTestsCoreInterpreter/programs/illegal/PrintXUI.core simpleTestsCoreInterpreter/input/blank.txt
+ - python3 -m core_interpreter.interpreter simpleTestsCoreInterpreter/programs/illegal/PrintXRB.core simpleTestsCoreInterpreter/input/blank.txt
+
+ - python3 -m core_interpreter.interpreter simpleTestsCoreInterpreter/programs/illegal/PrintXDD1.core simpleTestsCoreInterpreter/input/blank.txt
+ - python3 -m core_interpreter.interpreter simpleTestsCoreInterpreter/programs/illegal/PrintXDD2.core simpleTestsCoreInterpreter/input/blank.txt
+ - python3 -m core_interpreter.interpreter simpleTestsCoreInterpreter/programs/illegal/PrintXUD.core simpleTestsCoreInterpreter/input/blank.txt
+ - python3 -m core_interpreter.interpreter simpleTestsCoreInterpreter/programs/illegal/PrintXUI.core simpleTestsCoreInterpreter/input/blank.txt
 
 **Notes:**
 If you want to run all of these at once run: python3 tests.py.
