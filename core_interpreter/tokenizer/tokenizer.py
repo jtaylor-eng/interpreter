@@ -161,7 +161,7 @@ class TokenizerCORE:
 
         # we know since __process_integer was called, first char in tok is digit,
         # now we need to determine whether every char in the tok is digit
-        while line_cp[0].isdigit():
+        while line_cp and line_cp[0].isdigit():
             int_len += 1
             line_cp = line_cp[1:]
 
@@ -173,7 +173,7 @@ class TokenizerCORE:
 
         # we know since __process_id was called, first char in tok is upper,
         # now we need to determine whether every char in the tok is upper or digit
-        while line_cp[0].isdigit() or line_cp[0].isupper():
+        while line_cp and (line_cp[0].isdigit() or line_cp[0].isupper()):
             id_len += 1
             line_cp = line_cp[1:]
 

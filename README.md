@@ -9,7 +9,7 @@ The project source code is found within the core_interpreter directory
 
 At the top level of this core_interpreter packages there is:
  - interpreter.py: main method for executing interpreter. takes the command line args for the program_file and input_data
- - config.py: Stores global variables (the tokenizer and input data). The globals are initialized to None here, but set to the proper values in the main method of interpreter.py 
+ - config.py: Stores global variables (the tokenizer and input data). The globals are initialized to None here, but set to the proper values in the main method of interpreter.py. Also in this file is a global function which ensures the current token is allowed according to the BNF. titled assert_proper_token
  - productions: subpackage containing the production rule classes (OOP approach to interpreter)
  - tokenizer: subpackage containing tokenizer code and test cases
  - __init__.py, __pycache__: needed so python can properly treat directory as package
@@ -38,5 +38,6 @@ python3 -m core_interpreter.interpreter simpleTestsCoreInterpreter/programs/ille
 python3 -m core_interpreter.interpreter simpleTestsCoreInterpreter/programs/illegal/PrintXUD.core simpleTestsCoreInterpreter/input/blank.txt
 python3 -m core_interpreter.interpreter simpleTestsCoreInterpreter/programs/illegal/PrintXUI.core simpleTestsCoreInterpreter/input/blank.txt
 
-**Note:**
+**Notes:**
 If you want to run all of these at once run: python3 tests.py.
+Also included some extra productions in full.core and math.core which test some notable productions I found missing in mathOp.core

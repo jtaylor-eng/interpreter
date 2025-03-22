@@ -20,23 +20,23 @@ class Stmt:
         tok = config.TOKENIZER.getToken()
         tok_no = tok[0]
 
-        if tok_no == 32:
+        if tok_no == 32: #assign stmt
             self.alt_no = 1
             self.assign = assign.Assign()
             self.assign.parse_assign()
-        elif tok_no == 5:
+        elif tok_no == 5: #if stmt
             self.alt_no = 2
             self._if = _if.If()
             self._if.parse_if()
-        elif tok_no == 8:
+        elif tok_no == 8: #loop stmt
             self.alt_no = 3
             self.loop = loop.Loop()
             self.loop.parse_loop()
-        elif tok_no == 10:
+        elif tok_no == 10: #read stmt
             self.alt_no = 4
             self._in = _in.In()
             self._in.parse_in()
-        elif tok_no == 11:
+        elif tok_no == 11: #write stmt
             self.alt_no = 5
             self.out = out.Out()
             self.out.parse_out()

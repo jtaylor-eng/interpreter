@@ -49,7 +49,7 @@ class Id:
             print(f'{self.name} = {self.val}')
 
     def exec_id(self):
-        if not self.initialized:
+        if not self.initialized: #UI error
             print(f'Error: {self.name} must be initialized before access.')
             exit()
         return self.val

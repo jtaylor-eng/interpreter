@@ -13,7 +13,7 @@ class Out:
         self.id_list = idlist.IdList()
         self.id_list.parse_id_list()
 
-        config.assert_proper_token(';', 'out')
+        config.assert_proper_token([';'], 'out')
         config.TOKENIZER.skipToken() #;
 
     def print_out(self, indent):

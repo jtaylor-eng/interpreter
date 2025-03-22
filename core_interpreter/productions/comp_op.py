@@ -16,9 +16,9 @@ class CompOp:
 
     def parse_comp_op(self):
         self.op_str = config.TOKENIZER.getToken()[1]
+        config.assert_proper_token(CompOp.ops.keys(), 'comp_op')
         self.alt_no = CompOp.ops[self.op_str]
 
-        config.assert_proper_token(CompOp.ops.keys(), 'comp_op')
         config.TOKENIZER.skipToken() #skip operator
 
     def print_comp_op(self):

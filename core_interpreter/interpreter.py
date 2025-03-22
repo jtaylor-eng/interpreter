@@ -26,7 +26,8 @@ def main():
     config.INPUTS = [int(line) for line in lines if line.strip()]
 
     program_parser = Prog()
-
+    
+    #parse, print, execute
     print(' ===     Beginning Parsing:   ===')
     program_parser.parse_prog()
     print(' ===     Parsing complete!    ===\n')
